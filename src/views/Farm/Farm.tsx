@@ -77,8 +77,8 @@ const Farm: React.FC = () => {
         </StyledCardsWrapper>
         <Spacer size="lg" />
         <StyledInfo>
-          ⭐️ Every time you stake and unstake LP tokens, the contract will
-          automagically harvest SUSHI rewards for you!
+          Every time you stake and unstake LP tokens, the contract will
+          automagically pump out BRRN rewards for you!
         </StyledInfo>
         <Spacer size="lg" />
       </StyledFarm>
@@ -115,7 +115,8 @@ const StyledCardWrapper = styled.div`
 `
 
 const StyledInfo = styled.h3`
-  color: ${(props) => props.theme.color.grey[400]};
+
+  color: #fff;
   font-size: 16px;
   font-weight: 400;
   margin: 0;

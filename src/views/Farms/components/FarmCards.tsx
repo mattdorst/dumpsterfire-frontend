@@ -78,7 +78,7 @@ const FarmCards: React.FC = () => {
         ))
       ) : (
         <StyledLoadingWrapper>
-          <Loader text="Cooking the rice ..." />
+          <Loader text="Lighting the 🔥..." />
         </StyledLoadingWrapper>
       )}
     </StyledCards>
@@ -128,20 +128,20 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
   return (
     <StyledCardWrapper>
-      {farm.tokenSymbol === 'SUSHI' && <StyledCardAccent />}
+      {farm.tokenSymbol === 'BRRN' && <StyledCardAccent />}
       <Card>
         <CardContent>
           <StyledContent>
             <CardIcon>{farm.icon}</CardIcon>
             <StyledTitle>{farm.name}</StyledTitle>
             <StyledDetails>
-              <StyledDetail>Deposit {farm.lpToken.toUpperCase()}</StyledDetail>
+              <StyledDetail>BRRN {farm.lpToken.toUpperCase()}</StyledDetail>
               <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
             </StyledDetails>
             <Spacer />
             <Button
               disabled={!poolActive}
-              text={poolActive ? 'Select' : undefined}
+              text={poolActive ? 'Burn' : undefined}
               to={`/farms/${farm.id}`}
             >
               {!poolActive && (
@@ -152,7 +152,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               )}
             </Button>
             <StyledInsight>
-              <span>APY</span>
+              <span>Earnings (APY)</span>
               <span>
                 {farm.apy
                   ? `${farm.apy
@@ -182,36 +182,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   )
 }
 
-const RainbowLight = keyframes`
-  
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-`
 
 const StyledCardAccent = styled.div`
-  background: linear-gradient(
-    45deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 154, 0, 1) 10%,
-    rgba(208, 222, 33, 1) 20%,
-    rgba(79, 220, 74, 1) 30%,
-    rgba(63, 218, 216, 1) 40%,
-    rgba(47, 201, 226, 1) 50%,
-    rgba(28, 127, 238, 1) 60%,
-    rgba(95, 21, 242, 1) 70%,
-    rgba(186, 12, 248, 1) 80%,
-    rgba(251, 7, 217, 1) 90%,
-    rgba(255, 0, 0, 1) 100%
-  );
-  background-size: 300% 300%;
-  animation: ${RainbowLight} 2s linear infinite;
   border-radius: 12px;
   filter: blur(6px);
   position: absolute;
@@ -254,7 +226,8 @@ const StyledCardWrapper = styled.div`
 `
 
 const StyledTitle = styled.h4`
-  color: ${(props) => props.theme.color.grey[600]};
+  // color: ${(props) => props.theme.color.grey[600]};
+  color: #fff;
   font-size: 24px;
   font-weight: 700;
   margin: ${(props) => props.theme.spacing[2]}px 0 0;
@@ -278,23 +251,25 @@ const StyledDetails = styled.div`
 `
 
 const StyledDetail = styled.div`
-  color: ${(props) => props.theme.color.grey[500]};
+  // color: ${(props) => props.theme.color.grey[500]};
+  color: rgba(255,255,255, .75);
 `
 
 const StyledInsight = styled.div`
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  border-radius: 8px;
-  background: #fffdfa;
-  color: #aa9584;
+  // border-radius: 8px;
+  // background: #fffdfa;
+  // color: #aa9584;
+  color: #fff;
   width: 100%;
   margin-top: 12px;
   line-height: 32px;
   font-size: 13px;
-  border: 1px solid #e6dcd5;
+  // border: 1px solid #e6dcd5;
   text-align: center;
-  padding: 0 12px;
+  padding: 0;
 `
 
 export default FarmCards
